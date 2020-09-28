@@ -169,6 +169,7 @@ class MainScreen extends React.Component {
       flexRow,
       white,
       leftMargin,
+      buttonStyle,
     } = styles;
 
     const {
@@ -197,8 +198,8 @@ class MainScreen extends React.Component {
         {conversationList(conversationArray)}
         <KeyboardAvoidingView
           behavior={Platform.OS == 'ios' ? 'padding' : 'height'}>
-          <Footer style={[flexRow, containerSpacing]}>
-            <Content>
+          <Footer style={flexRow}>
+            <Content style={containerSpacing}>
               <Form>
                 <Textarea
                   style={white}
@@ -214,12 +215,12 @@ class MainScreen extends React.Component {
               <Button
                 info
                 disabled={isButtonDisabled}
-                style={leftMargin}
+                style={[leftMargin, buttonStyle]}
                 onPress={() => {
                   this.handleUserResponse();
                   this.calculateUserDestination();
                 }}>
-                <Icon name="send" />
+                <Icon type="FontAwesome" name="paper-plane" />
               </Button>
             </Form>
           </Footer>
